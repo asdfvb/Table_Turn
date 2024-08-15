@@ -1,7 +1,8 @@
 spring.application.name: Table_Turn
 
 server:
-  port: 24001
+  port: 80
+  address: 0.0.0.0
 
 spring:
   datasource:
@@ -9,3 +10,7 @@ spring:
     driver-class-name: oracle.jdbc.OracleDriver
     username: TABLE_USER
     password: TABLE_USER
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
