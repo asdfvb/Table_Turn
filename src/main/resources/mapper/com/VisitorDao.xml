@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sykim.web.table_turn.common.dao.VisitorDao">
+
+    <insert id="insertVisitor" parameterType="sykim.web.table_turn.common.dao.VisitorDao">
+        INSERT INTO TB_VISITOR
+        VALUES(
+            SQ_TB_VISITOR.NEXTVAL
+            , #{visitorIp}
+            , SYSDATE
+            , #{visitorRefer}
+            , #{visitorAgent}
+        )
+    </insert>
+</mapper>
