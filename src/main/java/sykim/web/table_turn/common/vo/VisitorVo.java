@@ -15,6 +15,6 @@ public class VisitorVo {
     public VisitorVo(String remoteAddr, String agent, String referer) {
         this.visitorIp = remoteAddr;
         this.visitorAgent = agent;
-        this.visitorRefer = referer;
+        this.visitorRefer = (referer == null) ? "Direct Connect" : referer;
     }
 }
