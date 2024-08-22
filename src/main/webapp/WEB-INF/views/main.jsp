@@ -13,6 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -66,47 +69,146 @@
 
 <section class="showcase bg-light text-center">
     <div class="container">
-        <h2>중식</h2>
-        <div class="row">
-            <div class="col-lg-4" style="padding:5rem;">
-                <a target="_blank" href="#">
-                    <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
-                        <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
-                    </span>
-                    <div>
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+        <!-- Slider main container -->
+        <div class="swiper">
+
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="row">
+                        <h2>중식</h2>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design1</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design1</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design1</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <h2>한식</h2>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design2</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
 
-                </a>
-            </div>
-            <div class="col-lg-4" style="padding:5rem;">
-                <a target="_blank" href="#">
-                    <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
-                        <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
-                    </span>
-                    <div>
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design2</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design2</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <h2>양식</h2>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design3</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
 
-                </a>
-            </div>
-            <div class="col-lg-4" style="padding:5rem;">
-                <a target="_blank" href="#">
-                    <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
-                        <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
-                    </span>
-                    <div>
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design3</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4" style="padding:5rem;">
+                            <a target="_blank" href="#">
+                                <span style="float:left; position: relative; width: 100%; height: 206px; overflow: hidden;">
+                                    <img style="position: absolute;left: 0;top: 0;width: 100%;height: 100%; object-fit: cover;" src="assets/img/bg-showcase-1.jpg"/>
+                                </span>
+                                <div>
+                                    <h2>Fully Responsive Design3</h2>
+                                    <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+                                </div>
+
+                            </a>
+                        </div>
                     </div>
-
-                </a>
+                </div>
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
-
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
+
+
+
     </div>
 </section>
 
@@ -149,6 +251,8 @@
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Core theme JS-->
     <script src="js/common.js"></script>

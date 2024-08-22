@@ -98,3 +98,97 @@ const customAjax = (options) => {
         }
     }
 }
+
+class SwiperClass {
+
+    swiper = null;
+
+    isPossiblStart = true;
+
+    constructor(obj) {
+
+
+        if(!obj.swiperTarget){
+            console.warn("swiperTarget 객체를 찾을 수 없습니다.");
+            this.isPossiblStart = false;
+        }
+
+        if(!obj.pagingEl){
+            console.warn("pagingEl 객체를 찾을 수 없습니다.");
+            this.isPossiblStart = false;
+        }
+
+        if(!obj.navigateNextTarget || !obj.navigatePrevTarget){
+            console.warn(("navigateTarget 객체를 찾을 수 없습니다."))
+            this.isPossiblStart = false;
+        }
+
+        this.swiperTarget = obj.swiperTarget;
+        this.spaceBetween = obj.spaceBetween || 30;
+        this.centeredSlides = obj.centeredSlides || true;
+        this.delay = obj.delay || 3000;
+        this.disableOnInteraction = obj.disableOnInteraction || false;
+        this.pagingEl = obj.pagingEl;
+        this.clickable = obj.clickable || true;
+        this.navigateNextTarget = obj.navigateNextTarget;
+        this.navigatePrevTarget = obj.navigatePrevTarget;
+
+    }
+
+    createSwiper(){
+
+        if(!this.isPossiblStart){
+            console.warn("Swiper 객체를 생성 할 수 없습니다.");
+            return false;
+        }
+
+        this.swiper =  new Swiper(this.swiperTarget, {
+            spaceBetween: this.spaceBetween,
+            centeredSlides: this.centeredSlides,
+            autoplay: {
+                delay: this.delay,
+                disableOnInteraction: this.disableOnInteraction,
+            },
+            pagination: {
+                el: this.pagingEl,
+                clickable: this.clickable,
+            },
+            navigation: {
+                nextEl: this.navigateNextTarget,
+                prevEl: this.navigatePrevTarget
+            },
+        });
+    }
+}
+
+const loadCurrentLocation = () => {
+    navigator.geolocation.getCurrentPosition((pos => {
+        console.log("success : ", pos);
+
+    }), err => {
+        console.warn(err);
+    }, {
+        enableHighAccuracy : true,
+        timeout : 5000,
+        maximumAge : 0
+    });
+}
+
+const locationInfoByKaKao = async (pos) => {
+
+
+    await apiRequestInfo({
+        targetCode: "KAKAO00001"
+    });
+
+    customAjax({
+        url: "https://dapi.kakao.com/v2/local/geo/coord2address.json?x="+pos.coords.longitude+'&y=' + pos.coords.latitude
+        ,method: "GET"
+        ,headers: {'Authorization' : 'KakaoAK ed7f5e1e8b31dc1156e3276d9584c7a0'}
+        ,successFunc: (result) => {
+            console.log(result);
+        }
+    })
+}
+
+const
