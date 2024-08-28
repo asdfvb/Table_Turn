@@ -3,9 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Restaurant Recommendation</title>
+    <title>Table-Turn</title>
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
+
 <body>
 <div class="header">
     <h1>Find Your Favorite Restaurant</h1>
@@ -13,10 +14,10 @@
         <input type="text" placeholder="Search..." />
     </div>
     <div class="buttons">
-        <button>Region Selection</button>
-        <button>Set Location</button>
+        <button>지역 선택</button>
+        <button>현 위치로 설정</button>
     </div>
-    <p class="note">Provide location-based search information...</p>
+    <p class="note">가산디지털1로 212</p>
     <div class="category">
         <button>Top Rated</button>
         <button>Popular</button>
@@ -28,37 +29,95 @@
 </div>
 
 <div class="main-content">
-    <h2>Category Name</h2>
-    <div class="restaurant-list">
-        <!-- Repeat this block for each restaurant -->
-        <div class="restaurant-item">
-            <img src="assets/img/bg-showcase-1.jpg" alt="Restaurant Image" />
-            <div class="restaurant-info">
-                <h3>Restaurant Name</h3>
-                <p>Location: Example Address</p>
-                <p>Rating: ★★☆☆☆</p>
+
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <h2>Category Name</h2>
+                <div class="restaurant-list">
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-1.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★★☆☆☆</p>
+                        </div>
+                    </div>
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★★☆☆☆</p>
+                        </div>
+                    </div>
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★☆☆☆☆</p>
+                        </div>
+                    </div>
+                <!-- End of restaurant block -->
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Category Name2</h2>
+                <div class="restaurant-list">
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-1.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★★★★☆</p>
+                        </div>
+                    </div>
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★★★★☆</p>
+                        </div>
+                    </div>
+                    <!-- Repeat this block for each restaurant -->
+                    <div class="restaurant-item">
+                        <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
+                        <div class="restaurant-info">
+                            <h3>Restaurant Name</h3>
+                            <p>Location: Example Address</p>
+                            <p>Rating: ★★★★☆</p>
+                        </div>
+                    </div>
+                    <!-- End of restaurant block -->
+                </div>
             </div>
         </div>
-        <!-- Repeat this block for each restaurant -->
-        <div class="restaurant-item">
-            <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
-            <div class="restaurant-info">
-                <h3>Restaurant Name</h3>
-                <p>Location: Example Address</p>
-                <p>Rating: ★★★★★</p>
-            </div>
-        </div>
-        <!-- Repeat this block for each restaurant -->
-        <div class="restaurant-item">
-            <img src="assets/img/bg-showcase-2.jpg" alt="Restaurant Image" />
-            <div class="restaurant-info">
-                <h3>Restaurant Name</h3>
-                <p>Location: Example Address</p>
-                <p>Rating: ★★★★★</p>
-            </div>
-        </div>
-        <!-- End of restaurant block -->
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
 </div>
+<%--javascript cdn--%>
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Core theme JS-->
+<script src="js/common.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>

@@ -20,7 +20,7 @@ $(() => {
 function setButtonEvent(){
 
     //현위치로 설정 버튼 클릭 이벤트
-    $("#btnCurrentArea").clikc((e) => {
+    $("#btnCurrentArea").click((e) => {
         loadCurrentLocation();
     });
 
