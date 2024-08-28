@@ -190,5 +190,3 @@ const locationInfoByKaKao = async (pos) => {
         }
     })
 }
-
-const

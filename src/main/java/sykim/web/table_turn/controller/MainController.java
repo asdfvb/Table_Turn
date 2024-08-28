@@ -10,4 +10,9 @@ public class MainController {
     public String main(){
         return "main";
     }
+
+    @GetMapping("/list")
+    public String restaurantList(){
+        return "restaurantList";
+    }
 }

@@ -6,7 +6,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@222.112.211.95:1521:orcl
+    url: jdbc:oracle:thin:@222.112.211.163:1521:orcl
     driver-class-name: oracle.jdbc.OracleDriver
     username: TABLE_USER
     password: TABLE_USER

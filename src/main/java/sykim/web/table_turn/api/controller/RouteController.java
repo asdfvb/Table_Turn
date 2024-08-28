@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RouteController {
 
-    @GetMapping(value = "/getApiRequestInfo")
+    /*@GetMapping(value = "/getApiRequestInfo")
     public String getApiRequestInfo() {
 
-    }
+    }*/
 
 }
