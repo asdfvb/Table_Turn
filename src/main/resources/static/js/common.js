@@ -126,7 +126,7 @@ class SwiperClass {
         this.swiperTarget = obj.swiperTarget;
         this.spaceBetween = obj.spaceBetween || 30;
         this.centeredSlides = obj.centeredSlides || true;
-        this.delay = obj.delay || 3000;
+        this.delay = obj.delay || 5000;
         this.disableOnInteraction = obj.disableOnInteraction || false;
         this.pagingEl = obj.pagingEl;
         this.clickable = obj.clickable || true;

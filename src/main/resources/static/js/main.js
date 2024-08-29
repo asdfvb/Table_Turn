@@ -1,5 +1,5 @@
 const swiperClass = new SwiperClass({
-    swiperTarget: ".swiper"
+    swiperTarget: ".mainSwiper"
     , pagingEl: ".swiper-pagination"
     , navigateNextTarget: ".swiper-button-next"
     , navigatePrevTarget: ".swiper-button-prev"

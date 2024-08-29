@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Table-Turn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 
@@ -30,7 +31,7 @@
 
 <div class="main-content">
 
-    <div class="swiper">
+    <div class="swiper mainSwiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
