@@ -163,7 +163,7 @@ class SwiperClass {
 const loadCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((pos => {
         console.log("success : ", pos);
-
+        locationInfoByKaKao(pos);
     }), err => {
         console.warn(err);
     }, {
@@ -186,9 +186,20 @@ const locationInfoByKaKao = async (pos) => {
     })*/
 
     customAjax({
-        url: "/getApiRequestInfo"
+        url: "/getCurrentLocation"
+        ,data: {
+            longitude: pos.coords.longitude
+            , latitude: pos.coords.latitude
+        }
         ,successFunc: (result) => {
-            console.log(result);
+
+            if(!result){
+                console.error("위치를 찾을 수 없습니다.");
+            }
+
+            const _locationJson = JSON.parse(result);
+
+            $("#locationInfo").text(_locationJson.documents[0].road_address.address_name);
         }
     })
 }

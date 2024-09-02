@@ -16,9 +16,9 @@
     </div>
     <div class="buttons">
         <button>지역 선택</button>
-        <button>현 위치로 설정</button>
+        <button id="btnCurrentArea">현 위치로 설정</button>
     </div>
-    <p class="note">가산디지털1로 212</p>
+    <p class="note" id="locationInfo"></p>
     <div class="category">
         <button>Top Rated</button>
         <button>Popular</button>

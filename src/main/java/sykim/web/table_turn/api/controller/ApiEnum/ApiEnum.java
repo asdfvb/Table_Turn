@@ -14,7 +14,7 @@ public enum ApiEnum {
         "KAKAO00001"
         , "https://dapi.kakao.com/v2/local/geo/coord2address.json", (dto) -> {
             return new ApiInfoDto();
-    })
+        })
     ;
 
     private String code;
