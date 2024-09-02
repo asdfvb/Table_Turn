@@ -2,7 +2,6 @@ const customAjax = (options) => {
     const url = options.url || "";
     const data = options.data || {};
     const async = options.async || true //async 기본값 true
-    const method = options.method || "POST" //async 기본값 true
     const showLoading = ( options.showLoading == undefined || options.showLoading == null ) ? true : options.showLoading; //showLoading 기본값 true
     const elementIds = options.elementIds || [];
     const elementNames = options.elementNames || [];
@@ -13,7 +12,7 @@ const customAjax = (options) => {
 
     return $.ajax({
         url : url,
-        method: method,
+        method: "POST",
         type: "json",
         async: async,
         contentType: "application/json; charset=utf-8",
@@ -177,14 +176,17 @@ const loadCurrentLocation = () => {
 const locationInfoByKaKao = async (pos) => {
 
 
-    await apiRequestInfo({
-        targetCode: "KAKAO00001"
-    });
-
-    customAjax({
+    /*customAjax({
         url: "https://dapi.kakao.com/v2/local/geo/coord2address.json?x="+pos.coords.longitude+'&y=' + pos.coords.latitude
         ,method: "GET"
         ,headers: {'Authorization' : 'KakaoAK ed7f5e1e8b31dc1156e3276d9584c7a0'}
+        ,successFunc: (result) => {
+            console.log(result);
+        }
+    })*/
+
+    customAjax({
+        url: "/getApiRequestInfo"
         ,successFunc: (result) => {
             console.log(result);
         }

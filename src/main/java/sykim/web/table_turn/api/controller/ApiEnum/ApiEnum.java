@@ -1,11 +1,14 @@
 package sykim.web.table_turn.api.controller.ApiEnum;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import sykim.web.table_turn.api.dto.ApiInfoDto;
 
 import java.util.function.Function;
 
 @RequiredArgsConstructor
+@Getter
 public enum ApiEnum {
     KAKAO_CURRENT_LOCATION(
         "KAKAO00001"

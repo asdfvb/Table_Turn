@@ -19,3 +19,5 @@ mybatis:
   mapper-locations: mapper/*/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+kakao_location_api_key: ed7f5e1e8b31dc1156e3276d9584c7a0
