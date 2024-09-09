@@ -34,6 +34,16 @@ select::-ms-expand{
     margin-top: 10px;
 }
 
+.search-bar button{
+    width: 60px;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
 .buttons {
     margin-top: 10px;
 }

@@ -24,8 +24,28 @@ function setButtonEvent(){
         loadCurrentLocation();
     });
 
+    $("#btnSearchPlace").click(async (e) => {
+
+        var _inptSearchPlace = $("#inptSearchPlace");
+
+        if(!_inptSearchPlace.val()){
+            alert("검색어를 입력해주세요");
+            _inptSearchPlace.focus();
+            return false;
+        }
+
+        const placeList = await findPlaceList({
+            apiCode: "KAKAO00002"
+            , dto: {
+                searchPlaceName: _inptSearchPlace.val()
+            }
+        });
+
+        console.log(placeList);
+    });
 }
 
 function startSwiper(){
     swiperClass.createSwiper();
 }
+

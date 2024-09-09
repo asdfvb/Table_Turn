@@ -12,7 +12,8 @@
 <div class="header">
     <h1>Find Your Favorite Restaurant</h1>
     <div class="search-bar">
-        <input type="text" placeholder="Search..." />
+        <input type="text" id="inptSearchPlace" placeholder="Search..." />
+        <button id="btnSearchPlace" class="searchBtn">검색</button>
     </div>
     <div class="buttons">
         <button>지역 선택</button>

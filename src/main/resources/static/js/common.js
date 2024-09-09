@@ -17,9 +17,7 @@ const customAjax = (options) => {
         async: async,
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify(data),
-        headers : {
-            'Authorization' : 'KakaoAK ed7f5e1e8b31dc1156e3276d9584c7a0'
-        }, success : function(data,status,request){
+        success : function(data,status,request){
 
             if(typeof successFunc === "function"){successFunc(data);}
             designer(false);
@@ -160,10 +158,32 @@ class SwiperClass {
     }
 }
 
+const apiRequestByGetMethod = async (param) => {
+    return await customAjax({
+        url: "/apiRequestByGetMethod"
+        ,data: param
+    });
+}
+
+//경도 x, y 좌표를 이용하여 해당 위치 정보 찾는 메소드
+const locationInfoByKaKao = async (param) => {
+    const locationInfo = await apiRequestByGetMethod(param);
+
+    const _locationJson = JSON.parse(locationInfo);
+
+    $("#locationInfo").text(_locationJson.documents[0].road_address.address_name);
+}
+
+//현재 위치 정보 구하는 메소드
 const loadCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((pos => {
-        console.log("success : ", pos);
-        locationInfoByKaKao(pos);
+        locationInfoByKaKao({
+            dto: {
+                longitude: pos.coords.longitude
+                , latitude: pos.coords.latitude
+            }
+            , apiCode: "KAKAO00001"
+        });
     }), err => {
         console.warn(err);
     }, {
@@ -173,33 +193,17 @@ const loadCurrentLocation = () => {
     });
 }
 
-const locationInfoByKaKao = async (pos) => {
 
+//장소 검색 리스트 구하기
+const findPlaceList = async (param) => {
+    const placeList = await apiRequestByGetMethod(param);
 
-    /*customAjax({
-        url: "https://dapi.kakao.com/v2/local/geo/coord2address.json?x="+pos.coords.longitude+'&y=' + pos.coords.latitude
-        ,method: "GET"
-        ,headers: {'Authorization' : 'KakaoAK ed7f5e1e8b31dc1156e3276d9584c7a0'}
-        ,successFunc: (result) => {
-            console.log(result);
-        }
-    })*/
+    if(!placeList) {
+        alert("찾을수 없는 장소 입니다.");
+        return false;
+    }
 
-    customAjax({
-        url: "/getCurrentLocation"
-        ,data: {
-            longitude: pos.coords.longitude
-            , latitude: pos.coords.latitude
-        }
-        ,successFunc: (result) => {
-
-            if(!result){
-                console.error("위치를 찾을 수 없습니다.");
-            }
-
-            const _locationJson = JSON.parse(result);
-
-            $("#locationInfo").text(_locationJson.documents[0].road_address.address_name);
-        }
-    })
+    return JSON.parse(placeList);
 }
+
+
