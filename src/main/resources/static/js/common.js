@@ -236,12 +236,14 @@ const drawPlaceListByCategory = (target, swiperTarget, categoryName, placeList) 
 
         _swiperItemHtml += `
             <div class="restaurant-item">
+                <a href="${placeList[i].place_url}" style="text-decoration-line: none; cursor: pointer;" target="_blank">
                 <img src="assets/img/bg-showcase-1.jpg" alt="Restaurant Image" />
                 <div class="restaurant-info">
                     <h3>${placeList[i].place_name}</h3>
                     <p>Location: ${placeList[i].road_address_name}</p>
                     <p></p>
                 </div>
+                </a>
             </div>
         `;
 
@@ -293,4 +295,16 @@ const searchPlaceList = async (keyword) => {
     console.log(placeList);
 
     drawPlaceListByCategory(".main-content", swiperClass1, "맛집 랭킹", placeList.documents);
+}
+
+const categoryEvent = () => {
+    const categories = $(".category p");
+
+    categories.click((e) => {
+       e.target.classList.contains("clicked")
+           ? e.target.classList.remove("clicked")
+           : e.target.classList.add("clicked")
+
+
+    });
 }

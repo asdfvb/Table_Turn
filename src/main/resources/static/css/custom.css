@@ -226,3 +226,13 @@ select::-ms-expand{
 .flex{
     display: flex;
 }
+
+.category p{
+    display: inline-block;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.clicked {
+    color: cornflowerblue;
+}

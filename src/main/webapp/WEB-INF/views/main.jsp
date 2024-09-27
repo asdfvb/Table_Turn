@@ -21,12 +21,12 @@
     </div>
     <p class="note" id="locationInfo"></p>
     <div class="category">
-        <button>Top Rated</button>
-        <button>Popular</button>
-        <button>Fine Dining</button>
-        <button>Casual</button>
-        <button>Delivery Available</button>
-        <button>Date Night</button>
+        <p>#Top Rated</p>
+        <p>#Popular</p>
+        <p>#Fine Dining</p>
+        <p>#Casual</p>
+        <p>#Delivery Available</p>
+        <p>#Date Night</p>
     </div>
 </div>
 

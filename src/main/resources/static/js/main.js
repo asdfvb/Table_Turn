@@ -7,6 +7,8 @@ $(async () => {
 
     //접속한 사용자 위치 바인딩
     await loadCurrentLocation( searchPlaceList );
+
+    categoryEvent();
 });
 
 function setButtonEvent(){
