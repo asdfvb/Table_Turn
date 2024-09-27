@@ -169,28 +169,39 @@ const apiRequestByGetMethod = async (param) => {
 const locationInfoByKaKao = async (param) => {
     const locationInfo = await apiRequestByGetMethod(param);
 
-    const _locationJson = JSON.parse(locationInfo);
+    return JSON.parse(locationInfo);
 
-    $("#locationInfo").text(_locationJson.documents[0].road_address.address_name);
+
 }
 
 //현재 위치 정보 구하는 메소드
-const loadCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((pos => {
-        locationInfoByKaKao({
+const loadCurrentLocation = async (callback, keyword) => {
+
+    await navigator.geolocation.getCurrentPosition(async (pos) => {
+        let info = await locationInfoByKaKao({
             dto: {
                 longitude: pos.coords.longitude
                 , latitude: pos.coords.latitude
             }
             , apiCode: "KAKAO00001"
         });
-    }), err => {
+
+        const roadName = info.documents[0].road_address.address_name;
+
+        $("#locationInfo").text(roadName);
+
+        if(typeof callback === "function"){
+            callback(roadName + " 맛집");
+        }
+    }, err => {
         console.warn(err);
     }, {
         enableHighAccuracy : true,
         timeout : 5000,
         maximumAge : 0
     });
+
+
 }
 
 
@@ -206,4 +217,80 @@ const findPlaceList = async (param) => {
     return JSON.parse(placeList);
 }
 
+const drawPlaceListByCategory = (target, swiperTarget, categoryName, placeList) => {
+    const _target = $(target);
+    const lastIndex = $(".mainSwiper").length + 1;
+    let _swiperHtml = `
+        <div class="swiper mainSwiper${lastIndex}">
+        <h2>${categoryName}</h2>
+            <div class="swiper-wrapper">
+    `;
 
+    let _swiperItemHtml = '';
+
+    for (let i = 0; i < placeList.length; i++){
+
+        if (i % 3 == 0) {
+            _swiperItemHtml += '<div class="swiper-slide"><div class="restaurant-list">';
+        }
+
+        _swiperItemHtml += `
+            <div class="restaurant-item">
+                <img src="assets/img/bg-showcase-1.jpg" alt="Restaurant Image" />
+                <div class="restaurant-info">
+                    <h3>${placeList[i].place_name}</h3>
+                    <p>Location: ${placeList[i].road_address_name}</p>
+                    <p></p>
+                </div>
+            </div>
+        `;
+
+        if ((i % 3 == 2) || placeList.length == i) {
+            _swiperItemHtml += '</div></div>';
+        }
+
+    }
+
+    _swiperItemHtml += `
+            </div>  
+            <div class="swiper-pagination paging${lastIndex}"></div>
+            <div class="swiper-button-prev btnPrev${lastIndex}"></div>
+            <div class="swiper-button-next btnNext${lastIndex}"></div>
+        </div>
+    `;
+
+
+    _swiperHtml += _swiperItemHtml;
+
+
+    _swiperHtml += "</div>";
+
+    _target.html(_swiperHtml);
+
+    swiperTarget = new SwiperClass({
+        swiperTarget: ".mainSwiper"+lastIndex
+        , pagingEl: ".paging"+lastIndex
+        , navigateNextTarget: ".btnNext"+lastIndex
+        , navigatePrevTarget: ".btnPrev"+lastIndex
+    });
+
+    swiperTarget.createSwiper();
+}
+
+const searchPlaceList = async (keyword) => {
+    if(!keyword){
+        alert("검색어를 입력해주세요");
+        return false;
+    }
+
+    const placeList = await findPlaceList({
+        apiCode: "KAKAO00002"
+        , dto: {
+            searchPlaceName: keyword
+        }
+    });
+
+    console.log(placeList);
+
+    drawPlaceListByCategory(".main-content", swiperClass1, "맛집 랭킹", placeList.documents);
+}

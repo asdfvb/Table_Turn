@@ -4,6 +4,8 @@ import lombok.*;
 import sykim.web.table_turn.api.controller.ApiEnum.ApiEnum;
 import sykim.web.table_turn.common.dao.ApiQuery;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
