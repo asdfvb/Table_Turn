@@ -236,3 +236,7 @@ select::-ms-expand{
 .clicked {
     color: cornflowerblue;
 }
+
+*:not(input[type=text]) {
+    user-select: none;
+}

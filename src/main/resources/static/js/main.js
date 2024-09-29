@@ -22,7 +22,7 @@ function setButtonEvent(){
 
         var _inptSearchPlace = $("#inptSearchPlace");
 
-        searchPlaceList(_inptSearchPlace);
+        searchPlaceList(_inptSearchPlace.val());
     });
 }
 

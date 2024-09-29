@@ -40,7 +40,7 @@ const customAjax = (options) => {
                     const resTxt = JSON.parse(request.responseText);
                     if( !!resTxt.error ){
                         const errorMsg = (!!resTxt.error.dvlprDc) ? resTxt.error.dvlprDc : "[ system message가 제공되지 않았습니다. 관리자에게 문의해 주세요.]";
-                        warn(
+                        console.log(
                             "system code : " + resTxt.error.excpLogSeqno + "<br/>"
                             + "system message : " + errorMsg + "<br/>"
                         );
