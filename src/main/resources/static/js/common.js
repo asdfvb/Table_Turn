@@ -308,3 +308,98 @@ const categoryEvent = () => {
 
     });
 }
+
+const initLocationPopup = () => {
+    // const API_KEY = '9A92EjbtUhZtHQ071RnHHTii5D+20NNXyXfxynbG2YhVNVjatcwpJFjqzjfOAiHI89hoTXwX3PlVQ600Uy7M7g==';  // 실제 API 키로 교체해주세요
+    const API_KEY = '9A92EjbtUhZtHQ071RnHHTii5D%2B20NNXyXfxynbG2YhVNVjatcwpJFjqzjfOAiHI89hoTXwX3PlVQ600Uy7M7g%3D%3D';  // 실제 API 키로 교체해주세요
+    const API_URL = 'https://apis.data.go.kr/1741000/StanReginCd/getStanReginCdList';
+
+    function getRegionData(params) {
+        return $.ajax({
+            url: API_URL,
+            type: 'GET',
+            data: {
+                ...params,
+                type: 'json',
+                numOfRows: '100',
+                pageNo: '1',
+                serviceKey: API_KEY
+            },
+            dataType: 'json'
+        });
+    }
+
+    $("#openPopup").click(function() {
+        $("#locationPopup").show().addClass('show');
+        if ($("#city option").length <= 1) {
+            loadCities();
+        }
+    });
+
+    $(".close").click(function() {
+        closePopup();
+    });
+
+    $(window).click(function(event) {
+        if ($(event.target).is('.popup')) {
+            closePopup();
+        }
+    });
+
+    function closePopup() {
+        $("#locationPopup").removeClass('show');
+        setTimeout(function() {
+            $("#locationPopup").hide();
+        }, 300);
+    }
+
+    function loadCities() {
+        getRegionData({ ctprvnCd: '' })
+            .done(function(data) {
+                const cities = data.StanReginCd[1].row;
+                cities.forEach(function(city) {
+                    $("#city").append(`<option value="${city.ctprvnCd}">${city.ctprvnNm}</option>`);
+                });
+            })
+            .fail(function(error) {
+                console.error('Error loading cities:', error);
+            });
+    }
+
+    $("#city").change(function() {
+        const cityCode = $(this).val();
+        $("#district").empty().append('<option value="">시/군/구 선택</option>').prop('disabled', false);
+        $("#dong").empty().append('<option value="">읍/면/동 선택</option>').prop('disabled', true);
+
+        if (cityCode) {
+            getRegionData({ ctprvnCd: cityCode })
+                .done(function(data) {
+                    const districts = data.StanReginCd[1].row;
+                    districts.forEach(function(district) {
+                        $("#district").append(`<option value="${district.signguCd}">${district.signguNm}</option>`);
+                    });
+                })
+                .fail(function(error) {
+                    console.error('Error loading districts:', error);
+                });
+        }
+    });
+
+    $("#district").change(function() {
+        const districtCode = $(this).val();
+        $("#dong").empty().append('<option value="">읍/면/동 선택</option>').prop('disabled', false);
+
+        if (districtCode) {
+            getRegionData({ signguCd: districtCode })
+                .done(function(data) {
+                    const dongs = data.StanReginCd[1].row;
+                    dongs.forEach(function(dong) {
+                        $("#dong").append(`<option value="${dong.adongCd}">${dong.adongNm}</option>`);
+                    });
+                })
+                .fail(function(error) {
+                    console.error('Error loading dongs:', error);
+                });
+        }
+    });
+}

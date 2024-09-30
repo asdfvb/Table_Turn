@@ -9,6 +9,8 @@ $(async () => {
     await loadCurrentLocation( searchPlaceList );
 
     categoryEvent();
+
+    initLocationPopup();
 });
 
 function setButtonEvent(){
